@@ -1,8 +1,21 @@
+using Caltec.StudentInfoProject.Business;
+using Caltec.StudentInfoProject.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<StudentService>();
+builder.Services.AddTransient<StudentClassService>();
+builder.Services.AddTransient<SchoolFeesService>();
+builder.Services.AddTransient<DegreeService>();
+builder.Services.AddDbContext<StudentInfoDbContext>(
+            options =>
+            {
+                options.UseSqlServer("", o => o.EnableRetryOnFailure());
 
+            }, ServiceLifetime.Transient);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

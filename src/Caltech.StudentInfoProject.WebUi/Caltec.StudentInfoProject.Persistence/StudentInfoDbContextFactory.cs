@@ -13,8 +13,8 @@ namespace Caltec.StudentInfoProject.Persistence
         public StudentInfoDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<StudentInfoDbContext>();
-            //string connexionString = "Server = localhost; Database = EduximTest; user=sa;password=SqlAdminPassword@123";
-            string connexionString = @"Server=localhost\SQLEXPRESS; Database=studentinfodb; integrated security=true;";
+            
+            string connexionString = @"";
 
 
             //string connexionString = "tcp:trainingmanagementsqlserver.Database.windows.net:1433;Initial Catalog=TrainingManagement;Persist Security Info=False;User ID=trainingadmin;Password=DevDb2019!;MultipleActiveResultsSets=False;Encrypt=True;ConnectionTimeout=30;";
