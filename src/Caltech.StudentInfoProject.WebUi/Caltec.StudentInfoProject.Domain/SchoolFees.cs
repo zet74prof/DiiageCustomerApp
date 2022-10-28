@@ -18,6 +18,5 @@ namespace Caltec.StudentInfoProject.Domain
         public string? PaymentStatus { get; set; }
         public string? PaymentNote { get; set; }
     }
-    {
-    }
+    
 }
