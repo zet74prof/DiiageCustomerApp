@@ -16,6 +16,7 @@ namespace Caltec.StudentInfoProject.Domain
         public string? Name { get; set; }
         public int NbYear { get; set; }
         public decimal FeesPerYearPerStudent { get; set; }
+        public int NbPayment { get; set; }
 
         public List<StudentClass> StudentClasses { get; set; }
        

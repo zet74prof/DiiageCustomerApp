@@ -12,11 +12,13 @@ namespace Caltec.StudentInfoProject.Domain
         public Student? Student { get; set; }
         public StudentClass? Class { get; set; }
         public decimal Amount { get; set; }
-        public DateTime DatePaid { get; set; }
+        public DateTime PaymentDate { get; set; }
         public string? PaymentMethod { get; set; }
         public string? PaymentReference { get; set; }
         public string? PaymentStatus { get; set; }
         public string? PaymentNote { get; set; }
+        
+        
     }
     
 }

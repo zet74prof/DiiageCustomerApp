@@ -1,5 +1,6 @@
 using Caltec.StudentInfoProject.Business;
 using Caltec.StudentInfoProject.Persistence;
+using Caltec.StudentInfoProject.Persistence.Initializer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,7 @@ builder.Services.AddTransient<DegreeService>();
 builder.Services.AddDbContext<StudentInfoDbContext>(
             options =>
             {
-                options.UseSqlServer("", o => o.EnableRetryOnFailure());
+                options.UseSqlServer(@"Server=Localhost\SQLEXPRESS;Database=AppCustomerDiiageDbe;Trusted_Connection=True;", o => o.EnableRetryOnFailure());
 
             }, ServiceLifetime.Transient);
 var app = builder.Build();
@@ -35,4 +36,24 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+CreateDbIfNotExists(app);
 app.Run();
+
+
+static void CreateDbIfNotExists(WebApplication? host)
+{
+    using (var scope = host?.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        try
+        {
+            var context = services.GetRequiredService<StudentInfoDbContext>();
+            DbInitializer.Initialize(context);
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred creating the DB.");
+        }
+    }
+}
