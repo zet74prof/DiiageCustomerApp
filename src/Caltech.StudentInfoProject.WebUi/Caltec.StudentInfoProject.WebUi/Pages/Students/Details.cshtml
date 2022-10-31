@@ -99,6 +99,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.SchoolFees[0].PaymentNote)
                     </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SchoolFees[0].PaymentStatus)
+                    </th>
                     
                 </tr>
             </thead>
@@ -126,6 +129,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.PaymentNote)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaymentStatus)
                         </td>
                     </tr>
                 }

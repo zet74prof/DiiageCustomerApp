@@ -15,14 +15,15 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 {
     public class EditModel : StudentModelBase
     {
-
-        public EditModel(StudentService service) : base(service)
+        private readonly StudentClassService _studentClassService;
+        public EditModel(StudentService service, StudentClassService studentClassService) : base(service)
         {
-
+            _studentClassService = studentClassService;
         }
 
         [BindProperty]
         public StudentDto Student { get; set; } = default!;
+        public List<SelectListItem> StudentClasses { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
@@ -32,6 +33,8 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
             }
 
             var student = await _service.GetOne(id.Value, CancellationToken.None);
+            var studentClassesDto = await _studentClassService.GetAllStudentClassesAsync(CancellationToken.None);
+            StudentClasses = studentClassesDto.Select(x => new SelectListItem(x.Name, x.Id.ToString())).ToList();
             if (student == null)
             {
                 return NotFound();
@@ -48,11 +51,7 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
             {
                 return Page();
             }
-
-
             await _service.UpdateAsync(Student, CancellationToken.None);
-
-
             return RedirectToPage("./Index");
         }
 
