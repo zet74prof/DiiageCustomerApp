@@ -24,8 +24,6 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
-
-
             var student = await _service.GetOne(id.Value, CancellationToken.None);
 
             if (student == null)
