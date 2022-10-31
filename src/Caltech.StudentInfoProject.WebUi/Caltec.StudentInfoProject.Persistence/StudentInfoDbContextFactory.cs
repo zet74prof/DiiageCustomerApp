@@ -14,7 +14,7 @@ namespace Caltec.StudentInfoProject.Persistence
         {
             var optionsBuilder = new DbContextOptionsBuilder<StudentInfoDbContext>();
             
-            string connexionString = @"";
+            string connexionString = @"Server=Localhost\SQLEXPRESS;Database=AppCustomerDiiageDbe;Trusted_Connection=True;";
 
 
             //string connexionString = "tcp:trainingmanagementsqlserver.Database.windows.net:1433;Initial Catalog=TrainingManagement;Persist Security Info=False;User ID=trainingadmin;Password=DevDb2019!;MultipleActiveResultsSets=False;Encrypt=True;ConnectionTimeout=30;";

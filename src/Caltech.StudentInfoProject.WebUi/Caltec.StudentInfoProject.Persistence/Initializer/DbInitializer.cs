@@ -14,7 +14,6 @@ namespace Caltec.StudentInfoProject.Persistence.Initializer
         private static readonly int _nbStudents = 100;
         private static readonly int _nbDegrees = 10;
         private static readonly int _studentPerClasses = 10;
-        private static readonly int _nbFees = 10;
                 
         private static readonly Random random = new Random();
 

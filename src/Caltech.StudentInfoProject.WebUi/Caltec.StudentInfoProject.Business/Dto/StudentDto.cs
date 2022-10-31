@@ -19,6 +19,6 @@ namespace Caltec.StudentInfoProject.Business.Dto
         public string? Zip { get; set; }
         public string? Country { get; set; }
         public string? ClassName { get; set; }
-        
+        public long? ClassId { get; set; }
     }
 }

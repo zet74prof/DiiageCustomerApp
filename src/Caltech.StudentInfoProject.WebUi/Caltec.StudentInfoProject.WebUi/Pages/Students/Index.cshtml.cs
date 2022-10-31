@@ -12,13 +12,11 @@ using Caltec.StudentInfoProject.Business.Dto;
 
 namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 {
-    public class StudentListModel : PageModel
+    public class StudentListModel : StudentModelBase
     {
-        private readonly StudentService _service;
-
-        public StudentListModel(StudentService service)
+        public StudentListModel(StudentService service) : base(service)
         {
-            _service = service;
+            
         }
 
         public IList<StudentDto> Students { get;set; } = default!;
