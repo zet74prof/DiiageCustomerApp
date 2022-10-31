@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.logo{
+    height: 50px;
+    width : 150px;
+}
+
+h1{
+    color : orange;
+}
