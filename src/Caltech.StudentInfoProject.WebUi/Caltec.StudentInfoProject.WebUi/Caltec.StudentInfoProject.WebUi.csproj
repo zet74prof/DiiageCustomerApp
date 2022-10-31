@@ -22,4 +22,8 @@
     <ProjectReference Include="..\Caltec.StudentInfoProject.Business\Caltec.StudentInfoProject.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\StudentClass\" />
+  </ItemGroup>
+
 </Project>

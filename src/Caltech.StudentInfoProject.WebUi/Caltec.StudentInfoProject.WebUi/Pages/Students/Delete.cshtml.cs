@@ -7,29 +7,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Caltec.StudentInfoProject.Domain;
 using Caltec.StudentInfoProject.Persistence;
+using Caltec.StudentInfoProject.Business;
+using Caltec.StudentInfoProject.Business.Dto;
 
 namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : StudentModelBase
     {
-        private readonly Caltec.StudentInfoProject.Persistence.StudentInfoDbContext _context;
-
-        public DeleteModel(Caltec.StudentInfoProject.Persistence.StudentInfoDbContext context)
+        public DeleteModel(StudentService service) : base(service)
         {
-            _context = context;
+
         }
 
         [BindProperty]
-      public Student Student { get; set; }
+      public StudentDto Student { get; set; }
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
-            if (id == null || _context.Students == null)
-            {
-                return NotFound();
-            }
 
-            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+
+            var student = await _service.GetOne(id.Value, CancellationToken.None);
 
             if (student == null)
             {
@@ -44,18 +41,11 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 
         public async Task<IActionResult> OnPostAsync(long? id)
         {
-            if (id == null || _context.Students == null)
+            if (id == null )
             {
                 return NotFound();
             }
-            var student = await _context.Students.FindAsync(id);
-
-            if (student != null)
-            {
-                Student = student;
-                _context.Students.Remove(Student);
-                await _context.SaveChangesAsync();
-            }
+            await _service.DeleteStudentAsync(id.Value, CancellationToken.None);
 
             return RedirectToPage("./Index");
         }

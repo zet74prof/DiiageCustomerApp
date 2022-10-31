@@ -23,6 +23,7 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 
         [BindProperty]
         public StudentDto Student { get; set; } = default!;
+        [BindProperty]
         public List<SelectListItem> StudentClasses { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(long? id)

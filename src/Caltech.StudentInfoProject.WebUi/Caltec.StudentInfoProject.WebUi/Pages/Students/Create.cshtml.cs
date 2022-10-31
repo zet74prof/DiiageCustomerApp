@@ -7,25 +7,30 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Caltec.StudentInfoProject.Domain;
 using Caltec.StudentInfoProject.Persistence;
+using Caltec.StudentInfoProject.Business.Dto;
+using Caltec.StudentInfoProject.Business;
 
 namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 {
-    public class CreateModel : PageModel
+    public class CreateModel : StudentModelBase
     {
-        private readonly Caltec.StudentInfoProject.Persistence.StudentInfoDbContext _context;
-
-        public CreateModel(Caltec.StudentInfoProject.Persistence.StudentInfoDbContext context)
+        private readonly StudentClassService _studentClassService;
+        public CreateModel(StudentService service, StudentClassService studentClassService) : base(service)
         {
-            _context = context;
+            _studentClassService = studentClassService;
         }
-
-        public IActionResult OnGet()
+        
+        public async Task<IActionResult> OnGetAsync()
         {
+            var studentClassesDto = await _studentClassService.GetAllStudentClassesAsync(CancellationToken.None);
+            StudentClasses = studentClassesDto.Select(x => new SelectListItem(x.Name, x.Id.ToString())).ToList();
             return Page();
         }
 
         [BindProperty]
-        public Student Student { get; set; }
+        public StudentDto Student { get; set; }
+        [BindProperty]
+        public List<SelectListItem> StudentClasses { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -35,10 +40,7 @@ namespace Caltec.StudentInfoProject.WebUi.Pages.Students
             {
                 return Page();
             }
-
-            _context.Students.Add(Student);
-            await _context.SaveChangesAsync();
-
+            await _service.InsertStudent(Student, cancellationToken: CancellationToken.None);
             return RedirectToPage("./Index");
         }
     }

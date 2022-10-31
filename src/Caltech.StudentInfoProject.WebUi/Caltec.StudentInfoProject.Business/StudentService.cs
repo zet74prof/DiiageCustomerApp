@@ -1,4 +1,5 @@
 ﻿using Caltec.StudentInfoProject.Business.Dto;
+using Caltec.StudentInfoProject.Domain;
 using Caltec.StudentInfoProject.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -79,6 +80,37 @@ namespace Caltec.StudentInfoProject.Business
                 State = student.State,
                 Zip = student.Zip
             };
+        }
+
+        public async Task<StudentDto> InsertStudent(StudentDto studentDto, CancellationToken cancellationToken)
+        {
+            var student = new Student
+            {
+                FirstName = studentDto.FirstName,
+                LastName = studentDto.LastName,
+                Email = studentDto.Email,
+                Phone = studentDto.Phone,
+                Address = studentDto.Address,
+                City = studentDto.City,
+                State = studentDto.State,
+                Zip = studentDto.Zip,
+                Country = studentDto.Country,
+                Class = await StudentInfoDbContext.StudentClasses.FindAsync(studentDto.ClassId)
+            };
+            await StudentInfoDbContext.Students.AddAsync(student, cancellationToken);
+            await StudentInfoDbContext.SaveChangesAsync(cancellationToken);
+            return studentDto;
+        }
+
+        public async Task DeleteStudentAsync(long Id, CancellationToken cancellationToken)
+        {
+            var student = await StudentInfoDbContext.Students.FindAsync(Id);
+            if (student == null)
+            {
+                throw new Exception("Student not found");
+            }
+            StudentInfoDbContext.Students.Remove(student);
+            await StudentInfoDbContext.SaveChangesAsync(cancellationToken);
         }
     }
 
