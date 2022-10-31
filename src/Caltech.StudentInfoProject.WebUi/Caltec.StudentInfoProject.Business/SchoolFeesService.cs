@@ -94,7 +94,7 @@ namespace Caltec.StudentInfoProject.Business
 
         public async Task DeleteOneAsync(long schoolFeeId, CancellationToken cancellationToken)
         {
-            var schoolFee = await StudentInfoDbContext.SchoolFees.FindAsync(schoolFeeId, cancellationToken);
+            var schoolFee = await StudentInfoDbContext.SchoolFees.FirstAsync(x=> x.Id == schoolFeeId, cancellationToken);
             if (schoolFee == null)
             {
                 throw new Exception("School Fee not found");
