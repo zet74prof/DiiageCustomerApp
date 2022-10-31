@@ -44,6 +44,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Students[0].ClassName)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].SumOfFees)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -80,6 +83,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SumOfFees)
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

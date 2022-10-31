@@ -20,5 +20,6 @@ namespace Caltec.StudentInfoProject.Business.Dto
         public string? Country { get; set; }
         public string? ClassName { get; set; }
         public long? ClassId { get; set; }
+        public decimal SumOfFees { get; set; }
     }
 }

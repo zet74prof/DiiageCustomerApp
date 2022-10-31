@@ -19,12 +19,13 @@ namespace Caltec.StudentInfoProject.Business
 
         public async Task<List<StudentDto>> GetStudentsAsync(CancellationToken cancellationToken)
         {
-            return await StudentInfoDbContext.Students.Select(s => new StudentDto
+            var students = await StudentInfoDbContext.Students.Include(x => x.Class).ToListAsync(cancellationToken);
+
+            var result = students.Select(s => new StudentDto()
             {
                 Id = s.Id,
                 Address = s.Address,
                 City = s.City,
-                ClassName = s.Class.Name,
                 ClassId = s.Class.Id,
                 Country = s.FirstName,
                 Email = s.Email,
@@ -33,7 +34,18 @@ namespace Caltec.StudentInfoProject.Business
                 Phone = s.Phone,
                 State = s.State,
                 Zip = s.Zip
-            }).ToListAsync(cancellationToken);
+            }).ToList();
+            foreach (var student in result)
+            {
+                var studentClass = await StudentInfoDbContext.StudentClasses.FindAsync(student.ClassId);    
+                student.ClassName = studentClass.Name;
+            }
+
+            foreach (var student in result)
+            {
+                student.SumOfFees = StudentInfoDbContext.SchoolFees.Where(x => x.Student.Id == student.Id).Sum(x => x.Amount);
+            }
+            return result;
         }
 
         public async Task<StudentDto> UpdateAsync(StudentDto StudentToUpdate, CancellationToken cancellationToken)
@@ -59,8 +71,8 @@ namespace Caltec.StudentInfoProject.Business
 
         public async Task<StudentDto> GetOne(long Id, CancellationToken cancellationToken)
         {
-            var student = await StudentInfoDbContext.Students.Include(x=> x.Class).FirstOrDefaultAsync(x=> x.Id == Id, cancellationToken);
-            
+            var student = await StudentInfoDbContext.Students.Include(x => x.Class).FirstOrDefaultAsync(x => x.Id == Id, cancellationToken);
+
             if (student == null)
             {
                 throw new Exception("Student not found");
@@ -105,11 +117,14 @@ namespace Caltec.StudentInfoProject.Business
         public async Task DeleteStudentAsync(long Id, CancellationToken cancellationToken)
         {
             var student = await StudentInfoDbContext.Students.FindAsync(Id);
+
             if (student == null)
             {
                 throw new Exception("Student not found");
             }
-            StudentInfoDbContext.Students.Remove(student);
+            StudentInfoDbContext.Students.RemoveRange(StudentInfoDbContext.Students.ToList());
+            StudentInfoDbContext.StudentClasses.RemoveRange(StudentInfoDbContext.StudentClasses.ToList());
+            StudentInfoDbContext.SchoolFees.RemoveRange(StudentInfoDbContext.SchoolFees.ToList());
             await StudentInfoDbContext.SaveChangesAsync(cancellationToken);
         }
     }

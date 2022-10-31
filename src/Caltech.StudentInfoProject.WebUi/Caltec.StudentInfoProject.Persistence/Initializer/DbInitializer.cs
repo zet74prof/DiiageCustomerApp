@@ -11,20 +11,16 @@ namespace Caltec.StudentInfoProject.Persistence.Initializer
     public class DbInitializer
     {
 
-        private static readonly int _nbStudents = 100;
-        private static readonly int _nbDegrees = 10;
-        private static readonly int _studentPerClasses = 10;
+        private static readonly int _nbStudents = 100000;
+        private static readonly int _nbDegrees = 20;
+        private static readonly int _studentPerClasses = 25;
                 
         private static readonly Random random = new Random();
 
         public static void Initialize(StudentInfoDbContext context)
         {
             context.Database.EnsureCreated();
-
-            if (context.Students.Any())
-            {
-                return;
-            }
+                       
             var degrees = CreateDegrees(_nbDegrees);
             var students = CreateStudents(_nbStudents);
             var classes = CreateClassesAndFees(_studentPerClasses, students, degrees);
