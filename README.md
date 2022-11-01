@@ -31,4 +31,4 @@ dotnet tool install --global dotnet-ef
 
 L'application necessite une base de données SQL Server pour fonctionner. 
 
-Un doxker file permet de l'executer dans un environnement conteneurisé. 
+Un docker file permet de l'executer dans un environnement conteneurisé. 
