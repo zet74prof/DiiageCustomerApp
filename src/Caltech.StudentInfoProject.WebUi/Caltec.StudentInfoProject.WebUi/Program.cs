@@ -14,7 +14,7 @@ builder.Services.AddTransient<DegreeService>();
 builder.Services.AddDbContext<StudentInfoDbContext>(
             options =>
             {
-                options.UseSqlServer(@"Server=Localhost\SQLEXPRESS;Database=AppCustomerDiiageDbe;Trusted_Connection=True;", o => o.EnableRetryOnFailure());
+                options.UseSqlServer(@"", o => o.EnableRetryOnFailure());
 
             }, ServiceLifetime.Transient);
 var app = builder.Build();

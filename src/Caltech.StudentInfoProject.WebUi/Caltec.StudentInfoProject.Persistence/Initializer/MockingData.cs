@@ -1,22 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Numerics;
-using System.Reflection.Metadata;
-using System.Runtime.InteropServices;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Channels;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-namespace Caltec.StudentInfoProject.Persistence.Initializer
+﻿namespace Caltec.StudentInfoProject.Persistence.Initializer
 {
     public class MockingData
     {

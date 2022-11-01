@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Caltec.StudentInfoProject.Domain;
-using Caltec.StudentInfoProject.Persistence;
 using Caltec.StudentInfoProject.Business.Dto;
 using Caltec.StudentInfoProject.Business;
 
 namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 {
-    public class CreateModel : StudentModelBase
+    public class CreateModel 
     {
         private readonly StudentClassService _studentClassService;
         public CreateModel(StudentService service, StudentClassService studentClassService) : base(service)

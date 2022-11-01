@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Caltec.StudentInfoProject.Domain;
-using Caltec.StudentInfoProject.Persistence;
+﻿using Microsoft.AspNetCore.Mvc;
 using Caltec.StudentInfoProject.Business;
-using Caltec.StudentInfoProject.Business.Dto;
 
 namespace Caltec.StudentInfoProject.WebUi.Pages.Students.SchoolFees
 {
