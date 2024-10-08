@@ -1,6 +1,7 @@
 ﻿using Caltec.StudentInfoProject.Business.Dto;
 using Caltec.StudentInfoProject.Domain;
 using Caltec.StudentInfoProject.Persistence;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Caltec.StudentInfoProject.Business
@@ -62,6 +63,19 @@ namespace Caltec.StudentInfoProject.Business
             student.Class = await StudentInfoDbContext.StudentClasses.FindAsync(StudentToUpdate.ClassId);
             await StudentInfoDbContext.SaveChangesAsync(cancellationToken);
             return StudentToUpdate;
+        }
+
+        public async  Task<StudentDto> InsertSpecialStudent(StudentDto StudentToInsert, CancellationToken cancellationToken)
+        {
+            var query = $"INSERT INTO Students (FirstName, LastName) VALUES ('{StudentToInsert.FirstName}', '{StudentToInsert.LastName}')";
+
+            StudentInfoDbContext.Database.ExecuteSqlRaw(query);
+
+            return new StudentDto
+            {
+                FirstName = StudentToInsert.FirstName,
+                LastName = StudentToInsert.LastName
+            };
         }
 
         public async Task<StudentDto> GetOne(long Id, CancellationToken cancellationToken)
