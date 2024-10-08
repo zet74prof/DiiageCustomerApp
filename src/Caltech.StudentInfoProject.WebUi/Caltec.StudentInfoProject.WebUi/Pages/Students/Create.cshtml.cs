@@ -5,7 +5,7 @@ using Caltec.StudentInfoProject.Business;
 
 namespace Caltec.StudentInfoProject.WebUi.Pages.Students
 {
-    public class CreateModel 
+    public class CreateModel : StudentModelBase
     {
         private readonly StudentClassService _studentClassService;
         public CreateModel(StudentService service, StudentClassService studentClassService) : base(service)
