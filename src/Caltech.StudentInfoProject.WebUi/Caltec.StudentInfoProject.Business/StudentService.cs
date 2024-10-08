@@ -77,8 +77,8 @@ namespace Caltec.StudentInfoProject.Business
                 Id = student.Id,
                 Address = student.Address,
                 City = student.City,
-                ClassName = student.Class.Name,
-                ClassId = student.Class.Id,
+                ClassName = student?.Class?.Name,
+                ClassId = student?.Class?.Id,
                 Country = student.FirstName,
                 Email = student.Email,
                 FirstName = student.FirstName,
@@ -106,7 +106,21 @@ namespace Caltec.StudentInfoProject.Business
             };
             await StudentInfoDbContext.Students.AddAsync(student, cancellationToken);
             await StudentInfoDbContext.SaveChangesAsync(cancellationToken);
-            return studentDto;
+            return new StudentDto
+            {
+                Address = student.Address,
+                City = student.City,
+                ClassName = student?.Class?.Name,
+                ClassId = student?.Class?.Id,
+                Country = student.Country,
+                Email = student.Email,
+                FirstName = student.FirstName,
+                Id = student.Id,
+                LastName = student.LastName,
+                Phone = student.Phone,
+                State = student.State,
+                
+            };
         }
 
         public async Task DeleteStudentAsync(long Id, CancellationToken cancellationToken)
