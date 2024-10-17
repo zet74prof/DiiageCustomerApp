@@ -13,11 +13,6 @@
 
 ### Étape 1 : Forker le dépôt GitHub
 
-#### Accéder au dépôt source
-
-- Rendez-vous sur le dépôt GitHub de l'application que nous allons utiliser pour l'atelier : [https://github.com/Erikvdv/realworldapiminimal](https://github.com/Erikvdv/realworldapiminimal).
-- Ce dépôt fait partie du projet **RealWorld**, qui regroupe une collection d'applications exemplaires. Plus d'informations sur [codebase.show](https://codebase.show/projects/realworld?category=backend).
-
 #### Forker le dépôt
 
 - Cliquez sur le bouton **"Fork"** en haut à droite de la page du dépôt.
