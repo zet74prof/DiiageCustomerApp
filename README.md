@@ -42,7 +42,7 @@
 #### Importer le projet GitHub dans SonarCloud
 
 - Dans SonarCloud, après avoir créé l'organisation, cliquez sur **"Analyze new project"**.
-- Sélectionnez le dépôt que vous avez forké (par exemple, `votre-nom-utilisateur/realworldapiminimal`).
+- Sélectionnez le dépôt que vous avez forké (par exemple, `votre-nom-utilisateur/DiiageCustomerApp`).
 - Cliquez sur **"Set Up"** pour commencer la configuration du projet.
 
 #### Configurer le projet SonarCloud
