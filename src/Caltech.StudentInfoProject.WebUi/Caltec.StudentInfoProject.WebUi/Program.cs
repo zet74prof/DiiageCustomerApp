@@ -3,6 +3,7 @@ using Caltec.StudentInfoProject.Persistence;
 using Caltec.StudentInfoProject.Persistence.Initializer;
 using Caltec.Dependency;
 using Microsoft.EntityFrameworkCore;
+using Caltec.StudentInfoProjectWebApi;
 
 string connectionString = @"Server=.\SQLExpress;Database=AppCustomerDiiageDbe;Trusted_Connection=Yes;";
 
@@ -63,7 +64,7 @@ static void CreateDbIfNotExists(WebApplication? host)
         try
         {
             var context = services.GetRequiredService<StudentInfoDbContext>();
-            DbInitializer.Initialize(context);
+            //DbInitializer.Initialize(context);
         }
         catch (Exception ex)
         {
