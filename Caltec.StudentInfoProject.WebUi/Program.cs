@@ -2,6 +2,8 @@ using Caltec.StudentInfoProject.Business;
 using Caltec.StudentInfoProject.Persistence;
 using Caltec.StudentInfoProject.Persistence.Initializer;
 using Microsoft.EntityFrameworkCore;
+using Caltec.StudentInfoProjectWebApi;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +16,14 @@ builder.Services.AddTransient<DegreeService>();
 builder.Services.AddDbContext<StudentInfoDbContext>(
             options =>
             {
-                options.UseSqlServer(@"", o => o.EnableRetryOnFailure());
+                options.UseSqlServer(@"Server=.\SQLExpress;Database=AppCustomerDiiageDbe;Trusted_Connection=Yes;", o => o.EnableRetryOnFailure());
 
             }, ServiceLifetime.Transient);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddCalTechDependency();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,8 +42,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
 
 CreateDbIfNotExists(app);
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.UseCaltechDependency();
 app.Run();
 
 
@@ -48,7 +62,7 @@ static void CreateDbIfNotExists(WebApplication? host)
         try
         {
             var context = services.GetRequiredService<StudentInfoDbContext>();
-            DbInitializer.Initialize(context);
+            //DbInitializer.Initialize(context);
         }
         catch (Exception ex)
         {
