@@ -10,7 +10,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Caltec.Dependency" Version="1.0.7" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
 			<PrivateAssets>all</PrivateAssets>
@@ -22,8 +21,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Caltec.StudentInfoProject.Business\Caltec.StudentInfoProject.Business.csproj" />
-		<ProjectReference Include="..\Caltec.StudentInfoProject.Domain\Caltec.StudentInfoProject.Domain.csproj" />
-		<ProjectReference Include="..\Caltec.StudentInfoProject.Persistence\Caltec.StudentInfoProject.Persistence.csproj" />
+		<ProjectReference Include="..\Caltech.StudentInfoProjectWebApi\Caltec.StudentInfoProjectWebApi.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
