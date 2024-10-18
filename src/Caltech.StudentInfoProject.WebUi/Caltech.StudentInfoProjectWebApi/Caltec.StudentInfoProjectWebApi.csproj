@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <PackageId>Caltec.Dependency</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Caltec suppliers</Authors>
+	  <Company>Caltec</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Caltec.StudentInfoProject.Domain\Caltec.StudentInfoProject.Domain.csproj" />
+    <ProjectReference Include="..\Caltec.StudentInfoProject.Persistence\Caltec.StudentInfoProject.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
