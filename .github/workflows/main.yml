@@ -42,7 +42,7 @@ jobs:
         run: |
           dotnet tool install --global dotnet-coverage
       - name: Build and analyze
-        working-directory: /src/Caltech.StudentInfoProject.WebUi/
+        working-directory: src/Caltech.StudentInfoProject.WebUi/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # update
