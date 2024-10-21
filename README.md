@@ -92,48 +92,12 @@
 
 ---
 
-### Étape 5 : Modifier le fichier YAML pour inclure la couverture de code
+### Étape 5 : Mise en place de Sonar sur l’un de vos projets
 
-#### Ajouter l'étape pour installer l'outil de couverture de code
+Intégrez une analyse statique de code à l’un de vos dépôts GitHub existants afin de procéder à son analyse en suivant les étapes du TP.  
+Si vous ne disposez pas d’un dépôt GitHub, vous pouvez choisir la stack de votre choix à partir du projet RealWorld App disponible à l'URL suivante : [RealWorld App](https://codebase.show/projects/realworld).
 
-- Dans le fichier `sonarcloud.yml`, ajoutez l'étape suivante après l'installation de .NET :
-
-  ```yaml
-  - name: Install Dotnet Coverage
-    shell: pwsh
-    run: |
-      dotnet tool install --global dotnet-coverage
+Ensuite, reproduisez les étapes précédentes sur ce nouveau projet.
 
 
-Cette étape installe l'outil `dotnet-coverage`, nécessaire pour collecter les données de couverture de code.
 
-#### Modifier l'étape "Build and analyze" pour inclure la couverture de code
-
-- Remplacez l'étape existante par le code suivant :
-
-  ```yaml
-  - name: Build and analyze
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Nécessaire pour obtenir les informations de PR, le cas échéant
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    shell: pwsh
-    run: |
-      dotnet tool install --global dotnet-sonarscanner
-      dotnet-sonarscanner begin /k:"[NOM_DE_VOTRE_PROJET_SONAR_CLOUD]" /o:"votre-nom-utilisateur" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
-      dotnet build
-      dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
-      dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-
-**Remplacez** `[NOM_DE_VOTRE_PROJET_SONAR_CLOUD]` par le nom de votre projet dans SonarCloud.
-- **Remplacez** `votre-nom-utilisateur` par votre nom d'utilisateur GitHub.
-
-#### Commiter le fichier
-
-- Enregistrez les modifications et commitez le fichier `sonarcloud.yml`.
-
-#### Vérifier la couverture de code sur SonarCloud
-
-- Une fois le workflow exécuté, retournez sur **SonarCloud**.
-- Vérifiez que la **couverture de code** est bien affichée dans les métriques du projet.
-
-Félicitations ! Vous avez intégré SonarCloud à votre projet GitHub et configuré une analyse continue avec couverture de code via GitHub Actions.
