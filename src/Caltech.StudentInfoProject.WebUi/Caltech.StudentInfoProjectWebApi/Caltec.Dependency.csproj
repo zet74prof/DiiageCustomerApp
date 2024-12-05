@@ -5,12 +5,15 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>Caltec.Dependency</PackageId>
-		<Version>1.0.6</Version>
+		<Version>1.0.7</Version>
 		<Authors>Caltec suppliers</Authors>
 		<Company>Caltec</Company>
-
+		
 	</PropertyGroup>
-
+	<PropertyGroup>
+		<RepositoryUrl>https://github.com/LargeGaultier/CaltecDependency</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
 	<PropertyGroup>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
