@@ -1,8 +1,6 @@
-﻿
+﻿using Caltec.Dependency.Domain.Common;
 
-using Caltec.StudentInfoProject.Domain.Common;
-
-namespace Caltec.StudentInfoProjectWebApi.Domain
+namespace Caltec.Dependency.Domain
 {
     public class Student : EntityBase
     {

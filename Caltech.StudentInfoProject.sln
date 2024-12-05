@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caltec.StudentInfoProject.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caltec.StudentInfoProject.Business.Tests", "Caltec.StudentInfoProject.Business.Tests\Caltec.StudentInfoProject.Business.Tests.csproj", "{7523677A-398D-42F3-BCEA-9779878B2F60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caltec.StudentInfoProjectWebApi", "Caltech.StudentInfoProjectWebApi\Caltec.StudentInfoProjectWebApi.csproj", "{762545A3-0B13-4C72-9E13-586B6926C019}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

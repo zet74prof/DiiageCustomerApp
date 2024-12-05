@@ -1,4 +1,4 @@
-﻿namespace Caltec.StudentInfoProject.Domain.Common
+﻿namespace Caltec.Dependency.Domain.Common
 {
     public class EntityBase
     {
