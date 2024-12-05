@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caltec.StudentInfoProjectWebApi.Exceptions
+namespace Caltec.Dependency.Exceptions
 {
-    public class TechnicalException : Exception 
+    public class TechnicalException : Exception
     {
     }
 }
