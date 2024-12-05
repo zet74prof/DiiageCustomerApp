@@ -1,7 +1,7 @@
 using Caltec.StudentInfoProject.Business;
 using Caltec.StudentInfoProject.Persistence;
 using Caltec.StudentInfoProject.Persistence.Initializer;
-using Caltec.StudentInfoProjectWebApi;
+using Caltec.Dependency;
 using Microsoft.EntityFrameworkCore;
 
 string connectionString = @"Server=.\SQLExpress;Database=AppCustomerDiiageDbe;Trusted_Connection=Yes;";

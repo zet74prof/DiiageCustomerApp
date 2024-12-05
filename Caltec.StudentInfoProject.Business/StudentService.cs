@@ -1,7 +1,7 @@
 ﻿using Caltec.StudentInfoProject.Business.Dto;
 using Caltec.StudentInfoProject.Domain;
 using Caltec.StudentInfoProject.Persistence;
-using Caltec.StudentInfoProjectWebApi.Exceptions;
+using Caltec.Dependency.Exceptions;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
