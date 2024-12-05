@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Caltec.StudentInfoProject.Persistence\Caltec.StudentInfoProject.Persistence.csproj" />
-    <ProjectReference Include="..\Caltech.StudentInfoProjectWebApi\Caltec.StudentInfoProjectWebApi.csproj" />
+    <ProjectReference Include="..\Caltech.StudentInfoProjectWebApi\Caltec.Dependency.csproj" />
   </ItemGroup>
 
 </Project>
