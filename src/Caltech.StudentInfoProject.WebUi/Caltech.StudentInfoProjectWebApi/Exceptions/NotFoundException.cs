@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caltec.StudentInfoProjectWebApi.Exceptions
+namespace Caltec.Dependency.Exceptions
 {
     public class NotFoundException : Exception
     {
@@ -13,7 +13,7 @@ namespace Caltec.StudentInfoProjectWebApi.Exceptions
         }
         public NotFoundException()
         {
-                
+
         }
     }
 }
