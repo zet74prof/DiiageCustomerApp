@@ -5,7 +5,7 @@ namespace Caltec.StudentInfoProject.Persistence.Initializer
     public class DbInitializer
     {
 
-        private static readonly int _nbStudents = 100000;
+        private static readonly int _nbStudents = 1000;
         private static readonly int _nbDegrees = 20;
         private static readonly int _studentPerClasses = 25;
                 
