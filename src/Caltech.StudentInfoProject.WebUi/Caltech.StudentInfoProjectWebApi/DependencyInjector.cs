@@ -1,11 +1,11 @@
-﻿using Caltec.StudentInfoProjectWebApi.Dal;
+﻿using Caltec.Dependency.Dal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Caltec.StudentInfoProjectWebApi
+namespace Caltec.Dependency
 {
-    
+
     public static class DependencyInjectorExtensions
     {
         public static void AddCalTechDependency(this IServiceCollection services, string connectionString)
@@ -37,14 +37,14 @@ namespace Caltec.StudentInfoProjectWebApi
             services.AddControllers();
 
             // Add Swagger UI middleware
-            
+
         }
 
         public static IApplicationBuilder UseCaltechDependency(
             this IApplicationBuilder app
           )
         {
-            
+
             app.UseSwagger();
             return app.UseSwaggerUI();
         }

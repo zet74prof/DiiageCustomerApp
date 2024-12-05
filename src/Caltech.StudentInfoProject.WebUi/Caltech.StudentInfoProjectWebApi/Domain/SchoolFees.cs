@@ -1,6 +1,6 @@
-﻿using Caltec.StudentInfoProject.Domain.Common;
+﻿using Caltec.Dependency.Domain.Common;
 
-namespace Caltec.StudentInfoProjectWebApi.Domain
+namespace Caltec.Dependency.Domain
 {
     public class SchoolFees : EntityBase
     {

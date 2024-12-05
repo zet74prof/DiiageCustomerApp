@@ -1,6 +1,5 @@
-﻿
-using Caltec.StudentInfoProjectWebApi.Dal;
-using Caltec.StudentInfoProjectWebApi.Domain;
+﻿using Caltec.Dependency.Dal;
+using Caltec.Dependency.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caltec.StudentInfoProjectWebApi.Controllers
+namespace Caltec.Dependency.Controllers
 {
-    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [Route("api/[controller]")]
     public class StudentsController : ControllerBase
     {
         private readonly StudentInfoDbContext _studentInfoDbContext;
-        public StudentsController(StudentInfoDbContext studentInfoDbContext) {
-            _studentInfoDbContext = studentInfoDbContext ;
+        public StudentsController(StudentInfoDbContext studentInfoDbContext)
+        {
+            _studentInfoDbContext = studentInfoDbContext;
         }
 
         // GET api/students
