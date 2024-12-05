@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Caltec.StudentInfoProjectWebApi.Dal;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Caltec.StudentInfoProjectWebApi
@@ -6,8 +8,15 @@ namespace Caltec.StudentInfoProjectWebApi
     
     public static class DependencyInjectorExtensions
     {
-        public static void AddCalTechDependency(this IServiceCollection services)
+        public static void AddCalTechDependency(this IServiceCollection services, string connectionString)
         {
+            services.AddDbContext<StudentInfoDbContext>(
+            options =>
+            {
+                options.UseSqlServer(connectionString, o => o.EnableRetryOnFailure());
+
+            }, ServiceLifetime.Transient);
+
             // Register your dependencies here
 
             // Add more dependencies as needed
