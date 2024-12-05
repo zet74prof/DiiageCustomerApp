@@ -63,7 +63,7 @@ static void CreateDbIfNotExists(WebApplication? host)
         try
         {
             var context = services.GetRequiredService<StudentInfoDbContext>();
-            //DbInitializer.Initialize(context);
+            DbInitializer.Initialize(context);
         }
         catch (Exception ex)
         {
