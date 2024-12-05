@@ -23,7 +23,7 @@ builder.Services.AddDbContext<StudentInfoDbContext>(
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddCalTechDependency(connectionString);
+builder.Services.AddCalTechDependency(connectionString);
 
 var app = builder.Build();
 
@@ -51,7 +51,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-//app.UseCaltechDependency();
+app.UseCaltechDependency();
 app.Run();
 
 
