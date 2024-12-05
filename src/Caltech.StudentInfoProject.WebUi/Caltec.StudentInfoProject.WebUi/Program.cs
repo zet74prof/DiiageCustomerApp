@@ -51,7 +51,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-//app.UseCaltechDependency();
+app.UseCaltechDependency();
 app.Run();
 
 
