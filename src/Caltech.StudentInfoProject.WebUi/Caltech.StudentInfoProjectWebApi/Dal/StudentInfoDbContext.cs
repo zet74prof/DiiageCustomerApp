@@ -1,7 +1,7 @@
-﻿using Caltec.StudentInfoProjectWebApi.Domain;
+﻿using Caltec.Dependency.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Caltec.StudentInfoProjectWebApi.Dal
+namespace Caltec.Dependency.Dal
 {
     public class StudentInfoDbContext : DbContext
     {

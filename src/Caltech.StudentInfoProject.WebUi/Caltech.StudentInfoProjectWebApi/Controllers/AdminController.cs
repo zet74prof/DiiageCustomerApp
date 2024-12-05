@@ -1,4 +1,4 @@
-﻿using Caltec.StudentInfoProjectWebApi.Dal;
+﻿using Caltec.Dependency.Dal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caltec.StudentInfoProjectWebApi.Controllers
+namespace Caltec.Dependency.Controllers
 {
-    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [Route("api/[controller]")]
     public class AdminController : ControllerBase
     {
         private readonly StudentInfoDbContext _studentInfoDbContext;
