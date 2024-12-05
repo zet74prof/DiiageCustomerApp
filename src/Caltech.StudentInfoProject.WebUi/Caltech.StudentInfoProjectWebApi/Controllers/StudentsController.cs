@@ -1,5 +1,6 @@
-﻿using Caltec.StudentInfoProject.Domain;
-using Caltec.StudentInfoProject.Persistence;
+﻿
+using Caltec.StudentInfoProjectWebApi.Dal;
+using Caltec.StudentInfoProjectWebApi.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
