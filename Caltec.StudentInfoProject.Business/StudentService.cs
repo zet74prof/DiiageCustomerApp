@@ -1,6 +1,7 @@
 ﻿using Caltec.StudentInfoProject.Business.Dto;
 using Caltec.StudentInfoProject.Domain;
 using Caltec.StudentInfoProject.Persistence;
+using Caltec.Dependency.Exceptions;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,7 +50,7 @@ namespace Caltec.StudentInfoProject.Business
             var student = await StudentInfoDbContext.Students.FindAsync(StudentToUpdate.Id);
             if (student == null)
             {
-                throw new Exception("Student not found");
+                throw new NotFoundException("Student not found");
             }
             student.FirstName = StudentToUpdate.FirstName;
             student.LastName = StudentToUpdate.LastName;
@@ -84,7 +85,7 @@ namespace Caltec.StudentInfoProject.Business
 
             if (student == null)
             {
-                throw new Exception("Student not found");
+                throw new NotFoundException("Student not found");
             }
             return new StudentDto
             {
@@ -143,7 +144,7 @@ namespace Caltec.StudentInfoProject.Business
 
             if (student == null)
             {
-                throw new Exception("Student not found");
+                throw new NotFoundException("Student not found");
             }
             StudentInfoDbContext.Students.RemoveRange(StudentInfoDbContext.Students.ToList());
             StudentInfoDbContext.StudentClasses.RemoveRange(StudentInfoDbContext.StudentClasses.ToList());

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caltec.StudentInfoProject.P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caltec.StudentInfoProject.Common", "Caltec.StudentInfoProject.Common\Caltec.StudentInfoProject.Common.csproj", "{D026699D-E9F2-46B3-8C9E-F1A61C279AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caltec.StudentInfoProject.Business.Tests", "Caltec.StudentInfoProject.Business.Tests\Caltec.StudentInfoProject.Business.Tests.csproj", "{7523677A-398D-42F3-BCEA-9779878B2F60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caltec.StudentInfoProject.Business.Tests", "Caltec.StudentInfoProject.Business.Tests\Caltec.StudentInfoProject.Business.Tests.csproj", "{7523677A-398D-42F3-BCEA-9779878B2F60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

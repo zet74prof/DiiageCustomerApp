@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Caltec.Dependency" Version="1.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Caltec.StudentInfoProject.Persistence\Caltec.StudentInfoProject.Persistence.csproj" />
   </ItemGroup>
 
