@@ -1,6 +1,7 @@
 using Caltec.StudentInfoProject.Business;
 using Caltec.StudentInfoProject.Persistence;
 using Caltec.StudentInfoProject.Persistence.Initializer;
+using Caltec.StudentInfoProjectWebApi;
 using Microsoft.EntityFrameworkCore;
 
 string connectionString = @"Server=.\SQLExpress;Database=AppCustomerDiiageDbe;Trusted_Connection=Yes;";
@@ -22,7 +23,7 @@ builder.Services.AddDbContext<StudentInfoDbContext>(
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddCalTechDependency(connectionString);
+builder.Services.AddCalTechDependency(connectionString);
 
 var app = builder.Build();
 
@@ -50,7 +51,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-//app.UseCaltechDependency();
+app.UseCaltechDependency();
 app.Run();
 
 
